@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@theme {
+  --color-ig-red: rgb(207 33 66);
+  --color-ig-orange: rgb(230 173 77);
+}
