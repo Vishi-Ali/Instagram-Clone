@@ -84,7 +84,7 @@ export function LoginForm({
                 </div>
                 <span className="sr-only">Instagram Clone</span>
               </a>
-              <h1 className="text-xl font-bold">Welcome to Instagram Clone</h1>
+              <h1 className="text-xl font-bold">Login to Instagram Clone</h1>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
                 <a href="/signup" className="underline underline-offset-4">
@@ -112,7 +112,7 @@ export function LoginForm({
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="Password" {...field} />
+                        <Input placeholder="Password" type="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -151,10 +151,6 @@ export function LoginForm({
           </div>
         </form>
       </Form>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </div>
     </div>
   )
 }

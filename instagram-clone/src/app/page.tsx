@@ -1,7 +1,12 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button"
+
 export default function Home() {
   return (
-    <div className="bg-ig-red">
-      test
+    <div>
+      <Button>
+        <Link href="/login">Login</Link>
+      </Button>
     </div>
   );
 }

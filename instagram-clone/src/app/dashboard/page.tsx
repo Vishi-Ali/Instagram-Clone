@@ -6,16 +6,16 @@ export default function Dashboard() {
     return (
         <div>
             <div className="flex justify-between items-center p-5">
-                <button className="cursor-pointer">
+                <Link href={'/'} className="cursor-pointer">
                     <ArrowLeftIcon className="size-6" />
-                </button>
+                </Link>
                 <h1 className="text-2xl font-bold flex items-center gap-2">
                     Username
                     <Check className="size-6 bg-ig-red text-white rounded-full p-1" />
                 </h1>
-                <button className="cursor-pointer">
+                <Link href={'/settings'} className="cursor-pointer">
                     <SettingsIcon className="size-6" />
-                </button>
+                </Link>
             </div>
 
             <div className="mt-10 flex items-center justify-center flex-col gap-2">
