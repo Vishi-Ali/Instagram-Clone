@@ -8,6 +8,7 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { toast } from "sonner";
 import { signIn } from "../../server/users";
 import { z } from "zod"
 import {
@@ -66,6 +67,7 @@ export function LoginForm({
         router.push("/dashboard")
       } else {
         console.log("Login failed")
+        toast("An unknown error occurred.")
       }
       setLoading(false)
     }
