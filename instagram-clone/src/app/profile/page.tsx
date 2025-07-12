@@ -52,7 +52,7 @@ export default async function ProfilePage() {
         <div className="p-3 rounded-full bg-gradient-to-tr from-ig-orange to-ig-red">
           <div className="bg-white p-2 rounded-full">
             <div className="aspect-square overflow-hidden w-60 rounded-full">
-              <img src={profile.avatar || ''} alt="Profile" />
+              <img src={profile.avatar || ''} alt="Profile" className="size-60" />
             </div>
           </div>
         </div>
