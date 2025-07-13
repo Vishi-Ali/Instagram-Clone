@@ -18,7 +18,7 @@ export function LoginForm({
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
         </CardHeader>
-        <div className="w-3/4 h-0.5 bg-gray-300 -mt-1 mb-4 mx-auto"></div>
+        <div className="w-3/4 h-0.5 -mt-1 mb-4 mx-auto"></div>
         <CardContent>
           <form action={doSocialLogin}>
             <div className="grid gap-6">

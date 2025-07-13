@@ -5,7 +5,8 @@ import Image from "next/image";
 
 export default function DesktopNav() {
     return (
-    <div className="hidden lg:block top-0 left-0 sticky h-screen p-5 max-w-md w-2xl shadow-lg bg-white">
+        
+    <div className="hidden lg:block top-0 left-0 sticky h-screen p-5 w-xl shadow-lg bg-white">
         <div className="flex flex-col items-center justify-around h-full text-ig-red">
             <div className="flex items-center justify-center gap-2 text-black font-semibold text-xl -mt-10">
                 <Image src={logo} alt="Logo" className="size-15" />
@@ -27,7 +28,7 @@ export default function DesktopNav() {
                 <LayoutGrid size={24} />
                 Browse
             </Link>
-            <Link href="/profile" className="flex items-center gap-4 cursor-pointer text-black hover:text-black transition-colors duration-300">
+            <Link href="/profile" className="flex items-center gap-4 cursor-pointer hover:text-black transition-colors duration-300">
                 <User size={24} />
                 Profile
             </Link>

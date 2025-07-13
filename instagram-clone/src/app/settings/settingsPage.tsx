@@ -17,7 +17,7 @@ interface SettingsClientProps {
     username: string | null;
     name: string | null;
     bio: string | null;
-  };
+  } | null;
 }
 
 
@@ -25,7 +25,7 @@ export default function SettingsPage({ profile }: SettingsClientProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [file, setFile] = useState<File>();
-    const [avatar, setAvatar] = useState(profile.avatar || '');
+    const [avatar, setAvatar] = useState(profile?.avatar || '');
 
     useEffect(() => {
         if (file) {
@@ -57,7 +57,7 @@ export default function SettingsPage({ profile }: SettingsClientProps) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center bg-gray-100 h-screen">
+        <div className="flex flex-col items-center justify-center">
             <div className="flex items-center justify-between text-3xl font-semibold w-screen p-4 shadow-md">
                 <Link href="/profile" className="cursor-pointer">
                     <ArrowLeftToLine />

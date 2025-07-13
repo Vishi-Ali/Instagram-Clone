@@ -6,7 +6,7 @@ import SettingsPage from "./settingsPage";
 
 export default async function Settings() {
     const session = await auth();
-    const profile = await prisma.user.findFirstOrThrow({
+    const profile = await prisma.user.findFirst({
         where: {email: session?.user?.email as string}
     })
     return (

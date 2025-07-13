@@ -33,3 +33,15 @@ export async function updateSettings(data) {
       }
   })
 }
+
+export async function postImage(data) {
+    const session = await auth();
+    const post = await prisma.post.create({
+        data: {
+            email: session?.user?.email,
+            image: data.get("image"),
+            description: data.get("description"),
+        }
+    })
+    return post.id;
+}
