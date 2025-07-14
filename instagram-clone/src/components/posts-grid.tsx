@@ -1,14 +1,10 @@
 'use client'
 
 import Masonry from "react-masonry-css";
+import { Post } from "../../generated/prisma";
+import Link from "next/link";
 
-let images: string[] = [];
-for (let i = 0; i < 20; i++) {
-    images.push(`https://picsum.photos/1024/786?random=${i}`);
-    images.push(`https://picsum.photos/786/1024?random=${i}`);
-}
-
-export default function PostsGrid() {
+export default function PostsGrid({posts}: {posts: Post[]}) {
     return (
         <Masonry
         breakpointCols={{
@@ -18,8 +14,10 @@ export default function PostsGrid() {
         }}
         className="flex"
         columnClassName="bg-clip-padding">
-                {images.map((image, index) => (
-                    <img src={image} alt={`Post ${index + 1}`} key={index} className="p-2"/>
+                {posts.map((post, index) => (
+                    <Link href={`/post/${post.id}`} key={index}>
+                        <img src={post.image} alt={`Post ${index + 1}`} className="p-2 cursor-pointer hover:brightness-75 transition  duration-300"/>
+                    </Link>
                 ))}
         </Masonry>
     )

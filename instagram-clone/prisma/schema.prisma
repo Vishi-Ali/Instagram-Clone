@@ -16,7 +16,7 @@ datasource db {
 
 model Post {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  email     String    @unique
+  email     String
   description    String
   image     String
   likes     Int       @default(0)

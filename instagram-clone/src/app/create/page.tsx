@@ -27,12 +27,13 @@ export default function CreatePage() {
   return (
     <form action={async (formData: FormData) => {
       console.log(formData);
-      const id = postImage(formData)
+      const id = await postImage(formData)
       router.push(`/post/${id}`);
     }} className="flex items-center justify-center gap-5 p-4 w-screen h-full">
       <div>
+        <input type="hidden" name="image" value={imgUrl} />
         {imgUrl && (
-          <img src={imgUrl} alt="Preview" className="size-96 rounded-lg" />
+          <img src={imgUrl} alt="Preview" className="max-w-96 rounded-lg" />
         )}
         {!imgUrl && (
           <Input type="file" id="picture" name="image" className="cursor-pointer" 

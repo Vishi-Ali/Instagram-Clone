@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { doLogout } from "../actions";
 import { ArrowLeftToLine, Check, Settings } from "lucide-react";
-import PostsGrid from "@/components/posts-grid";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { prisma } from "../prisma-client";
 import { redirect } from "next/navigation";
+import ProfilePosts from "@/components/profile-posts";
 
 export default async function ProfilePage() {
   const session = await auth();
@@ -78,7 +78,7 @@ export default async function ProfilePage() {
       </section>
 
       <section className="flex items-center justify-center mt-5">
-        <PostsGrid />
+        <ProfilePosts email={profile.email} />
       </section>
     </main>
   );
