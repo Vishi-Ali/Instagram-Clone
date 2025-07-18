@@ -45,3 +45,14 @@ export async function postImage(data) {
     })
     return post.id;
 }
+
+export async function postComment(data) {
+    const session = await auth();
+    await prisma.comment.create({
+        data: {
+            email: session.user.email,
+            comment: data.get('comment'),
+            postId: data.get('postId')
+        }
+    })
+}

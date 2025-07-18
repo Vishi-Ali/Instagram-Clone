@@ -10,14 +10,15 @@ export default async function Home() {
         Welcome to the Instagram Clone!
       </div>
       <Button className="curor-pointer">
-        <LogInIcon />
         {!session && (
-          <a href="/login">
+          <a href="/login" className="flex gap-2 items-center">
+            <LogInIcon />
             Login
           </a>
         )}
         {session && (
-          <a href="/profile">
+          <a href="/profile" className="flex gap-2 items-center">
+            <LogInIcon />
             Continue
           </a>
         )}

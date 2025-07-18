@@ -33,7 +33,9 @@ model User {
 }
 
 model Comment {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  comment String
-  postId  String @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  comment   String
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
 }

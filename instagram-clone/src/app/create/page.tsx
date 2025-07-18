@@ -26,7 +26,6 @@ export default function CreatePage() {
 
   return (
     <form action={async (formData: FormData) => {
-      console.log(formData);
       const id = await postImage(formData)
       router.push(`/post/${id}`);
     }} className="flex items-center justify-center gap-5 p-4 w-screen h-full">

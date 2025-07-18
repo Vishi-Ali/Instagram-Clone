@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="flex">
           <DesktopNav />
-          <div className="flex">
+          <div className="flex w-full justify-around pb-10">
             {children}
           </div>
         </div>

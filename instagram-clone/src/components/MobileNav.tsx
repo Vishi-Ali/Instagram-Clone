@@ -17,7 +17,7 @@ export default function MobileNav() {
             <Link href="/browse" className="cursor-pointer hover:text-black transition-colors duration-300">
               <LayoutGrid size={24} />
             </Link>
-            <Link href="/profile" className="cursor-pointer text-black hover:text-black transition-colors duration-300">
+            <Link href="/profile" className="cursor-pointer hover:text-black transition-colors duration-300">
               <User size={24} />
             </Link>
           </div>
