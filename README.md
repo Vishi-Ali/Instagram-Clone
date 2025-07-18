@@ -1,7 +1,7 @@
 # **Instagram Clone**
 A responsive, end-to-end clone of Instagram, built with modern web technologies.
 
-* **Tech Stack:** Next.js · Tailwind CSS · shadcn · Pinata API · Better-Auth · Prisma · MongoDB
+* **Tech Stack:** Next.js · Tailwind CSS · shadcn · Pinata API · Auth.js · Prisma · MongoDB
 * **Responsive Design:** Mobile-first layout with flexible grids and media queries for seamless experience across devices.
 * **User Authentication & Security:** Secure sign-up/sign-in flows as well as OAuth support.
 * **Image & Media Handling:** Upload, store, and serve images via IPFS (Pinata API), with automatic thumbnail generation and client-side preview.
