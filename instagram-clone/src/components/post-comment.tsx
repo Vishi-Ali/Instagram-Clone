@@ -1,5 +1,5 @@
 import { Dot } from "lucide-react";
-import { Post, User } from "../../generated/prisma"
+import { User } from "../../generated/prisma"
 
 export default function Comment({
     profile, text
@@ -20,7 +20,7 @@ export default function Comment({
                     @{profile?.username}
                 </p>
             </div>
-            <p className="p-5 border-2 rounded-b-md">
+            <p className="p-2 border-2 rounded-b-md">
                 {text}
             </p>
         </div>

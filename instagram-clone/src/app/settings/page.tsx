@@ -10,6 +10,6 @@ export default async function Settings() {
         where: {email: session?.user?.email as string}
     })
     return (
-        <SettingsPage profile={profile} />
+        <SettingsPage profile={profile} email={session?.user?.email} />
     )
 }

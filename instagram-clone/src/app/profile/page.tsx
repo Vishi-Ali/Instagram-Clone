@@ -22,8 +22,8 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main>
-      <section className="flex items-center justify-between p-4 shadow-md">
+    <main className="w-full">
+      <section className="flex items-center justify-between w-full p-4 shadow-md">
         <button className="cursor-pointer">
           <ArrowLeftToLine />
         </button>
@@ -52,7 +52,7 @@ export default async function ProfilePage() {
         <div className="p-3 rounded-full bg-gradient-to-tr from-ig-orange to-ig-red">
           <div className="bg-white p-2 rounded-full">
             <div className="aspect-square overflow-hidden w-60 rounded-full">
-              <img src={profile.avatar || ''} alt="Profile" className="size-60" />
+              <img src={profile.avatar || 'https://demofree.sirv.com/nope-not-here.jpg'} alt="Profile" className="size-60" />
             </div>
           </div>
         </div>

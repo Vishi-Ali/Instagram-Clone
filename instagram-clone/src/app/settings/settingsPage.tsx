@@ -18,10 +18,11 @@ interface SettingsClientProps {
     name: string | null;
     bio: string | null;
   } | null;
+  email?: string | null;
 }
 
 
-export default function SettingsPage({ profile }: SettingsClientProps) {
+export default function SettingsPage({ profile, email }: SettingsClientProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [file, setFile] = useState<File>();
@@ -57,8 +58,8 @@ export default function SettingsPage({ profile }: SettingsClientProps) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <div className="flex items-center justify-between text-3xl font-semibold w-screen p-4 shadow-md">
+        <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex items-center justify-between text-3xl font-semibold w-full p-4 shadow-md">
                 <Link href="/profile" className="cursor-pointer">
                     <ArrowLeftToLine />
                 </Link>
@@ -66,6 +67,14 @@ export default function SettingsPage({ profile }: SettingsClientProps) {
                 <div></div>
             </div>
             <div className="flex flex-col items-center justify-center h-full gap-4 p-4">
+                <div className="flex flex-col items-center">
+                    <div className="text-gray-500 font-semibold">
+                        You are logged in as
+                    </div>
+                    <div className="text-gray-400 text-sm">
+                        {email}
+                    </div>
+                </div>
                 <form className="flex flex-col gap-4 w-xl bg-white p-6 rounded-lg shadow-md" onSubmit={handleUpdate}>
                     <input type="hidden" name="avatar" value={avatar} />
                     <div className="grid w-full items-center gap-3">
@@ -77,15 +86,15 @@ export default function SettingsPage({ profile }: SettingsClientProps) {
                     </div>
                     <div className="grid w-full items-center gap-3">
                         <Label htmlFor="username">Username</Label>
-                        <Input type="text" id="username" name="username"/>
+                        <Input type="text" id="username" name="username" placeholder={profile?.username || ''} />
                     </div>
                     <div className="grid w-full items-center gap-3">
                         <Label htmlFor="name">Name</Label>
-                        <Input type="text" id="name" name="name" />
+                        <Input type="text" id="name" name="name" placeholder={profile?.name || ''} />
                     </div>
                     <div className="grid w-full items-center gap-3">
                         <Label htmlFor="bio">Bio</Label>
-                        <Input type="text" id="bio" name="bio" className="min-h-25" />
+                        <Input type="text" id="bio" name="bio" className="min-h-25" placeholder={profile?.bio || ''} />
                     </div>
                     <Button type="submit" variant="outline" className="w-full cursor-pointer transition-colors duration-300"> 
                         {loading ? <LoaderCircle className="animate-spin" /> : "Save Changes"}

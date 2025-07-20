@@ -39,3 +39,10 @@ model Comment {
   postId    String   @db.ObjectId
   createdAt DateTime @default(now())
 }
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postId    String   @db.ObjectId
+  email     String
+  createdAt DateTime @default(now())
+}

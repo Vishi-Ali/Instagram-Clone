@@ -56,3 +56,49 @@ export async function postComment(data) {
         }
     })
 }
+
+export async function likePost(data) {
+    const postId = data.get('postId')
+    const session = await auth();
+    await prisma.like.create({
+        data: {
+            email: session.user.email,
+            postId: postId
+        }
+    })
+    await prisma.post.update({
+        where: {
+            id: postId
+        },
+        data: {
+            likes: await prisma.like.count({
+                where: {
+                    postId: postId
+                }
+            })
+        }
+    })
+}
+
+export async function unlikePost(data) {
+    const postId = data.get('postId');
+    const session = await auth()
+    await prisma.like.deleteMany({
+        where: {
+            email: session.user.email,
+            postId: postId
+        }
+    })
+    await prisma.post.update({
+        where: {
+            id: postId
+        },
+        data: {
+            likes: await prisma.like.count({
+                where: {
+                    postId: postId
+                }
+            })
+        }
+    })
+}
