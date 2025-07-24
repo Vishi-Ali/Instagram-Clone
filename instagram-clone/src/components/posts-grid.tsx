@@ -1,8 +1,8 @@
 'use client'
 
 import Masonry from "react-masonry-css";
-import { Post } from "../../generated/prisma";
 import Link from "next/link";
+import { Post } from "@/generated/prisma";
 
 export default function PostsGrid({posts}: {posts: Post[]}) {
     return (

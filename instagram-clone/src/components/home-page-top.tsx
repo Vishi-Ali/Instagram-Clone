@@ -1,5 +1,5 @@
+import { User } from "@/generated/prisma";
 import { CirclePlus } from "lucide-react";
-import { User } from "../../generated/prisma";
 
 export default function HomePageStories({
     followProfile

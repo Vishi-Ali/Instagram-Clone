@@ -1,5 +1,5 @@
+import { User } from "@/generated/prisma";
 import { Dot } from "lucide-react";
-import { User } from "../../generated/prisma"
 
 export default function Comment({
     profile, text

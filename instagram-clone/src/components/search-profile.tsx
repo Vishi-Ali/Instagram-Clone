@@ -1,4 +1,4 @@
-import { User } from "../../generated/prisma"
+import { User } from "@/generated/prisma";
 import Link from "next/link"
 
 export default function SearchProfile({

@@ -1,7 +1,7 @@
 import { prisma } from "@/app/prisma-client";
-import { User } from "../../generated/prisma";
 import PostInstance from "./home-post-single";
 import { auth } from "@/auth";
+import { User } from "@/generated/prisma";
 
 export default async function HomePagePosts({
     followProfile
