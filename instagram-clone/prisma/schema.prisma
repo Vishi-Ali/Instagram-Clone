@@ -53,3 +53,10 @@ model Follow {
   followedProfile  String
   createdAt DateTime @default(now())
 }
+
+model Bookmark {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postId    String   @db.ObjectId
+  email     String
+  createdAt DateTime @default(now())
+}

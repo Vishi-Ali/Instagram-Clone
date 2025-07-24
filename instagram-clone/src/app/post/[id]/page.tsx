@@ -1,10 +1,9 @@
 import { prisma } from "@/app/prisma-client"
 import { auth } from "@/auth";
+import BookmarkButton from "@/components/bookmark-button";
 import CommentsForm from "@/components/comments-form";
 import Comment from "@/components/post-comment";
 import PostLikes from "@/components/post-likes";
-import { Button } from "@/components/ui/button";
-import { Bookmark } from "lucide-react";
 
 export default async function Post({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
@@ -34,6 +33,12 @@ export default async function Post({ params }: { params: Promise<{ id: string }>
             postId: id
         }
     })
+    const isBooked = await prisma.bookmark.findFirst({
+        where: {
+            email: session?.user?.email as string,
+            postId: id
+        }
+    })
     return (
         <div className="grid lg:grid-cols-[3fr_1fr] gap-10 p-5">
             <div className="flex items-center justify-center">
@@ -43,9 +48,7 @@ export default async function Post({ params }: { params: Promise<{ id: string }>
                 <Comment text={post.description} profile={profile} />
                 <div className="flex gap-2 items-center justify-around">
                     <PostLikes post={post} isLiked={isLiked ? true : false} />
-                    <Button variant="ghost" className="cursor-pointer hover:text-ig-red transition duration-300">
-                        <Bookmark />
-                    </Button>
+                    <BookmarkButton post={post} isBooked={isBooked ? true : false} />
                 </div>
                 <div className="flex flex-col items-center border-t-2 pt-5 gap-4">
                     <CommentsForm postId={id} />

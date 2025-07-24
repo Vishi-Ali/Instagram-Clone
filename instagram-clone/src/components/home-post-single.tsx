@@ -1,15 +1,16 @@
 import { Post, User } from "../../generated/prisma"
-import { Bookmark, Dot } from "lucide-react";
+import { Dot } from "lucide-react";
 import PostLikes from "./post-likes";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import BookmarkButton from "./bookmark-button";
 
 export default function PostInstance({
-    post, profile, isLiked
+    post, profile, isLiked, isBooked
 }:{
     post: Post;
     profile: User;
     isLiked: boolean;
+    isBooked: boolean;
 }) {
     return (
         <div className="w-md">
@@ -30,9 +31,7 @@ export default function PostInstance({
                     </Link>
                     <div className="flex">
                         <PostLikes post={post} isLiked={isLiked} />
-                        <Button variant="ghost" className="cursor-pointer hover:text-ig-red transition duration-300">
-                            <Bookmark />
-                        </Button>
+                        <BookmarkButton post={post} isBooked={isBooked} />
                     </div>                
                 </div>
                 <div className="ml-2">

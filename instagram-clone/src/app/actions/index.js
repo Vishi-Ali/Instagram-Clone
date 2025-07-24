@@ -122,3 +122,25 @@ export async function unfollowUser(data) {
         }
     })
 }
+
+export async function bookmarkPost(data) {
+    const postId = data.get('postId')
+    const session = await auth();
+    await prisma.bookmark.create({
+        data: {
+            email: session.user.email,
+            postId: postId
+        }
+    })
+}
+
+export async function unbookmarkPost(data) {
+    const postId = data.get('postId');
+    const session = await auth()
+    await prisma.bookmark.deleteMany({
+        where: {
+            email: session.user.email,
+            postId: postId
+        }
+    })
+}

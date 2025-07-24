@@ -36,8 +36,14 @@ export default async function HomePagePosts({
                         postId: post.id
                     }
                 })
+                const isBooked = await prisma.bookmark.findFirst({
+                    where: {
+                        email: session?.user?.email as string,
+                        postId: post.id
+                    }
+                })
                 return (
-                    <PostInstance key={post.id} post={post} profile={followMap[post.email]} isLiked={isLiked ? true : false} />
+                    <PostInstance key={post.id} post={post} profile={followMap[post.email]} isLiked={isLiked ? true : false} isBooked={isBooked ? true : false} />
                 )
             })}
         </div>
