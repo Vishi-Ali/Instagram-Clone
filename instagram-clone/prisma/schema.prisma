@@ -46,3 +46,10 @@ model Like {
   email     String
   createdAt DateTime @default(now())
 }
+
+model Follow {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  followerProfile  String
+  followedProfile  String
+  createdAt DateTime @default(now())
+}

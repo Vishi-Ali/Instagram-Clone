@@ -5,10 +5,12 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { postImage } from "../actions";
 import { useRouter } from "next/navigation";
+import { Loader, LoaderCircle } from "lucide-react";
 
 export default function CreatePage() {
   const [imgUrl, setImgUrl] = useState('');
   const [file, setFile] = useState<File>();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -25,9 +27,13 @@ export default function CreatePage() {
   }, [file])
 
   return (
-    <form action={async (formData: FormData) => {
-      const id = await postImage(formData)
+    <form onSubmit={async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      const formData = new FormData(e.currentTarget);
+      const id = await postImage(formData);
       router.push(`/post/${id}`);
+      setLoading(false);
     }} className="flex items-center justify-center gap-5 p-4 w-screen h-full">
       <div>
         <input type="hidden" name="image" value={imgUrl} />
@@ -43,7 +49,7 @@ export default function CreatePage() {
       <div className="flex flex-col items-center min-w-1/2">
         <Input type="text" placeholder="Description" name="description" className="mt-4 w-full h-24" />
         <Button type="submit" variant="outline" className="cursor-pointer mt-4 w-1/2">
-          Publish
+          {!loading ? "Publish" : <LoaderCircle className="animate-spin" />}
         </Button>
       </div>
     </form>

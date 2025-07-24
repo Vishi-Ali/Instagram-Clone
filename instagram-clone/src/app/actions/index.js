@@ -102,3 +102,23 @@ export async function unlikePost(data) {
         }
     })
 }
+
+export async function followUser(data) {
+    const session = await auth();
+    await prisma.follow.create({
+        data: {
+            followerProfile: session.user.email,
+            followedProfile: data.get("profile")
+        }
+    })
+}
+
+export async function unfollowUser(data) {
+    const session = await auth();
+    await prisma.follow.deleteMany({
+        where: {
+            followerProfile: session.user.email,
+            followedProfile: data.get("profile")
+        }
+    })
+}
