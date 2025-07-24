@@ -4,7 +4,7 @@ import SearchResults from "@/components/search-results";
 export default async function SearchPage({
     searchParams
 }:{
-    searchParams: {query: string}
+    searchParams: Promise<{query: string}>
 }) {
     const { query } = await searchParams;
     return (
