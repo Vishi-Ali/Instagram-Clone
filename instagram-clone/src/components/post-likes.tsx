@@ -4,7 +4,7 @@ import { Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { likePost, unlikePost } from "@/app/actions";
 import { useRouter } from "next/navigation";
-import { Post } from "@/generated/prisma";
+import { Post } from "@/lib/generated/prisma";
 
 export default function PostLikes({
     post, isLiked

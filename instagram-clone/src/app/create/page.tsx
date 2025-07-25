@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { postImage } from "../actions";
 import { useRouter } from "next/navigation";
-import { Loader, LoaderCircle } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 
 export default function CreatePage() {
   const [imgUrl, setImgUrl] = useState('');

@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/app/prisma-client";
 import ProfileTop from "./profile-page-top";
 import ProfileNav from "./profile-page-nav";
-import { User } from "@/generated/prisma";
+import { User } from "@/lib/generated/prisma";
 
 export default async function ProfilePageContent({
     profile

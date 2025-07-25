@@ -4,7 +4,7 @@ import { UserRoundMinus, UserRoundPlus } from "lucide-react";
 import { Button } from "./ui/button";
 import { followUser, unfollowUser } from "@/app/actions";
 import { useRouter } from "next/navigation";
-import { User } from "@/generated/prisma";
+import { User } from "@/lib/generated/prisma";
 
 export default function FollowProfile({
     profile, alreadyFollow

@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../src/lib/generated/prisma"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  email       String
+  description String
+  image       String
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String  @unique
+  name     String?
+  username String? @unique
+  avatar   String?
+  bio      String?
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  comment   String
+  postId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postId    String   @db.ObjectId
+  email     String
+  createdAt DateTime @default(now())
+}
+
+model Follow {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  followerProfile String
+  followedProfile String
+  createdAt       DateTime @default(now())
+}
+
+model Bookmark {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postId    String   @db.ObjectId
+  email     String
+  createdAt DateTime @default(now())
+}

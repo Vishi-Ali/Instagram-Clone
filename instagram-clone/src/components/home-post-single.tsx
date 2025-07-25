@@ -2,7 +2,7 @@ import { Dot } from "lucide-react";
 import PostLikes from "./post-likes";
 import Link from "next/link";
 import BookmarkButton from "./bookmark-button";
-import { Post, User } from "@/generated/prisma";
+import { Post, User } from "@/lib/generated/prisma";
 
 export default function PostInstance({
     post, profile, isLiked, isBooked

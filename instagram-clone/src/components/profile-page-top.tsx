@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeftToLine, Check, Settings } from "lucide-react";
 import Link from "next/link";
 import FollowProfile from "./profile-follow";
-import { Follow, User } from "@/generated/prisma";
+import { Follow, User } from "@/lib/generated/prisma";
 
 export default function ProfileTop({
     profile, ourProfile, alreadyFollow

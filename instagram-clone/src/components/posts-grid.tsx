@@ -2,7 +2,7 @@
 
 import Masonry from "react-masonry-css";
 import Link from "next/link";
-import { Post } from "@/generated/prisma";
+import { Post } from "@/lib/generated/prisma";
 
 export default function PostsGrid({posts}: {posts: Post[]}) {
     return (

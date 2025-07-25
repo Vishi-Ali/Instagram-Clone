@@ -4,7 +4,7 @@ import { Bookmark } from "lucide-react";
 import { Button } from "./ui/button";
 import { bookmarkPost, unbookmarkPost } from "@/app/actions";
 import { useRouter } from "next/navigation";
-import { Post } from "@/generated/prisma";
+import { Post } from "@/lib/generated/prisma";
 
 export default function BookmarkButton({
     post, isBooked
