@@ -8,14 +8,11 @@ export default function HomePageStories({
 }) {
     return (
         <div className="flex items-center w-full gap-4">
-            <div className="flex flex-col items-center">
-                <button className="flex size-22 items-center justify-center rounded-full bg-gradient-to-tr from-ig-orange to-ig-red cursor-pointer">
-                    <CirclePlus className="text-white size-8" />
-                </button>
-                <p className="text-center text-gray-500 text-sm mt-2">
-                    New Story
-                </p>
-            </div>
+            {!followProfile.length && (
+                <div>
+                    Follow your friends to get started!
+                </div>
+            )}
             {followProfile.map(follow => (
                 <div className="flex flex-col items-center" key={follow.id}>
                     <div className="p-1 rounded-full bg-gradient-to-tr from-ig-orange to-ig-red size-24">
