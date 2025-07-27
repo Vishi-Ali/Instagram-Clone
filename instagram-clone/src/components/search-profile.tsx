@@ -7,7 +7,7 @@ export default function SearchProfile({
     profile: User
 }) {
     return (
-        <Link href={`/users/${profile.username}`}
+        <Link href={`/users/${encodeURIComponent(profile.username as string)}`}
             className="flex gap-3 items-center bg-gray-100 px-8 py-3 rounded-xl cursor-pointer hover:bg-gray-200 duration-300"        
         >
             <div className="">

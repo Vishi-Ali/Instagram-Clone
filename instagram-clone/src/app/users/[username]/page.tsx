@@ -6,7 +6,8 @@ export default async function ProfilePage({
 }:{
     params: Promise<{username: string}>
 }) {
-    const { username } = await params;
+    const { username: raw } = await params;
+    const username = decodeURIComponent(raw)
     const profile = await prisma.user.findFirstOrThrow({
         where: {
             username: username
