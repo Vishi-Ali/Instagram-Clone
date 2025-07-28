@@ -48,13 +48,6 @@ model Like {
   createdAt DateTime @default(now())
 }
 
-model Follow {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  followerProfile  String
-  followedProfile  String
-  createdAt DateTime @default(now())
-}
-
 model Bookmark {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   postId    String   @db.ObjectId
