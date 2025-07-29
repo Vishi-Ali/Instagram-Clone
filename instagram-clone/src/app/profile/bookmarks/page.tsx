@@ -21,7 +21,7 @@ export default async function Bookmarks() {
     })
     return (
         <main className="w-full">
-            <ProfileTop profile={profile} ourProfile={true} alreadyFollow={null} />
+            <ProfileTop profile={profile} ourProfile={true} alreadyFollow={false} />
     
             <ProfileNav ourProfile={true} />
     
