@@ -7272,13 +7272,13 @@ export namespace Prisma {
 
   export type FollowWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    followerProfile?: string
     AND?: FollowWhereInput | FollowWhereInput[]
     OR?: FollowWhereInput[]
     NOT?: FollowWhereInput | FollowWhereInput[]
-    followerProfile?: StringFilter<"Follow"> | string
     followedProfiles?: StringNullableListFilter<"Follow">
     createdAt?: DateTimeFilter<"Follow"> | Date | string
-  }, "id">
+  }, "id" | "followerProfile">
 
   export type FollowOrderByWithAggregationInput = {
     id?: SortOrder
