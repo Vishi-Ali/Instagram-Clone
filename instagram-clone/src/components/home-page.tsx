@@ -5,14 +5,14 @@ import HomePagePosts from "./home-page-posts";
 
 export default async function HomePage() {
     const session = await auth();
-    const follows = await prisma.follow.findMany({
+    const follows = await prisma.follow.findFirstOrThrow({
         where: {
             followerProfile: session?.user?.email as string
         }
     })
     const followProfile = await prisma.user.findMany({
         where: {
-            email: {in: follows.map(f => f.followedProfile)}
+            email: {in: follows.followedProfiles}
         }
     })
     return (

@@ -105,22 +105,37 @@ export async function unlikePost(data) {
 
 export async function followUser(data) {
     const session = await auth();
-    await prisma.follow.create({
+    await prisma.follow.update({
+        where: {
+            followerProfile: session.user.email
+        },
         data: {
-            followerProfile: session.user.email,
-            followedProfile: data.get("profile")
+            followedProfiles: {
+                push: data.get("profile")
+            }
         }
     })
 }
 
 export async function unfollowUser(data) {
     const session = await auth();
-    await prisma.follow.deleteMany({
+    const follow = await prisma.follow.findFirstOrThrow({
         where: {
-            followerProfile: session.user.email,
-            followedProfile: data.get("profile")
+            followerProfile: session.user.email
         }
     })
+    const index= follow.followedProfiles.indexOf(data.get("profile"))
+    if (index >= 0) {
+        follow.followedProfiles.splice(index, 1);
+        await prisma.follow.update ({
+            where: {
+                followerProfile: session.user.email
+            },
+            data: {
+                followedProfiles: follow.followedProfiles
+            }
+        })
+    }
 }
 
 export async function bookmarkPost(data) {

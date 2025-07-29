@@ -149,7 +149,7 @@ exports.Prisma.LikeScalarFieldEnum = {
 exports.Prisma.FollowScalarFieldEnum = {
   id: 'id',
   followerProfile: 'followerProfile',
-  followedProfile: 'followedProfile',
+  followedProfiles: 'followedProfiles',
   createdAt: 'createdAt'
 };
 

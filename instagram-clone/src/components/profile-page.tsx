@@ -12,12 +12,12 @@ export default async function ProfilePageContent({
 }) {
     const session = await auth();
     const ourProfile = session?.user?.email === profile.email;
-    const alreadyFollow = await prisma.follow.findFirst({
+    const follow = await prisma.follow.findFirstOrThrow({
       where: {
-        followerProfile: session?.user?.email || '',
-        followedProfile: profile.email
+        followerProfile: session?.user?.email as string
       }
     })
+    const alreadyFollow = follow && follow.followedProfiles.includes(profile.email)
 
     return (
     <main className="w-full">

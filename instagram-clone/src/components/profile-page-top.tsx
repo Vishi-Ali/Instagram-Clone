@@ -10,7 +10,7 @@ export default function ProfileTop({
 }:{
     profile: User;
     ourProfile: boolean;
-    alreadyFollow: Follow | null;
+    alreadyFollow: boolean;
 }) {
     return (
         <div>
@@ -62,7 +62,7 @@ export default function ProfileTop({
 
             {!ourProfile && (
                 <section className="flex justify-center mt-3 mb-5">
-                    <FollowProfile profile={profile} alreadyFollow={alreadyFollow ? true : false} />
+                    <FollowProfile profile={profile} alreadyFollow={alreadyFollow} />
                 </section>
             )}
 

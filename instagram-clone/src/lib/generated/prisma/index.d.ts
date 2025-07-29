@@ -5064,21 +5064,19 @@ export namespace Prisma {
   export type FollowMinAggregateOutputType = {
     id: string | null
     followerProfile: string | null
-    followedProfile: string | null
     createdAt: Date | null
   }
 
   export type FollowMaxAggregateOutputType = {
     id: string | null
     followerProfile: string | null
-    followedProfile: string | null
     createdAt: Date | null
   }
 
   export type FollowCountAggregateOutputType = {
     id: number
     followerProfile: number
-    followedProfile: number
+    followedProfiles: number
     createdAt: number
     _all: number
   }
@@ -5087,21 +5085,19 @@ export namespace Prisma {
   export type FollowMinAggregateInputType = {
     id?: true
     followerProfile?: true
-    followedProfile?: true
     createdAt?: true
   }
 
   export type FollowMaxAggregateInputType = {
     id?: true
     followerProfile?: true
-    followedProfile?: true
     createdAt?: true
   }
 
   export type FollowCountAggregateInputType = {
     id?: true
     followerProfile?: true
-    followedProfile?: true
+    followedProfiles?: true
     createdAt?: true
     _all?: true
   }
@@ -5181,7 +5177,7 @@ export namespace Prisma {
   export type FollowGroupByOutputType = {
     id: string
     followerProfile: string
-    followedProfile: string
+    followedProfiles: string[]
     createdAt: Date
     _count: FollowCountAggregateOutputType | null
     _min: FollowMinAggregateOutputType | null
@@ -5205,7 +5201,7 @@ export namespace Prisma {
   export type FollowSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     followerProfile?: boolean
-    followedProfile?: boolean
+    followedProfiles?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["follow"]>
 
@@ -5214,11 +5210,11 @@ export namespace Prisma {
   export type FollowSelectScalar = {
     id?: boolean
     followerProfile?: boolean
-    followedProfile?: boolean
+    followedProfiles?: boolean
     createdAt?: boolean
   }
 
-  export type FollowOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "followerProfile" | "followedProfile" | "createdAt", ExtArgs["result"]["follow"]>
+  export type FollowOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "followerProfile" | "followedProfiles" | "createdAt", ExtArgs["result"]["follow"]>
 
   export type $FollowPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Follow"
@@ -5226,7 +5222,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       followerProfile: string
-      followedProfile: string
+      followedProfiles: string[]
       createdAt: Date
     }, ExtArgs["result"]["follow"]>
     composites: {}
@@ -5622,7 +5618,7 @@ export namespace Prisma {
   interface FollowFieldRefs {
     readonly id: FieldRef<"Follow", 'String'>
     readonly followerProfile: FieldRef<"Follow", 'String'>
-    readonly followedProfile: FieldRef<"Follow", 'String'>
+    readonly followedProfiles: FieldRef<"Follow", 'String[]'>
     readonly createdAt: FieldRef<"Follow", 'DateTime'>
   }
     
@@ -6945,7 +6941,7 @@ export namespace Prisma {
   export const FollowScalarFieldEnum: {
     id: 'id',
     followerProfile: 'followerProfile',
-    followedProfile: 'followedProfile',
+    followedProfiles: 'followedProfiles',
     createdAt: 'createdAt'
   };
 
@@ -7263,14 +7259,14 @@ export namespace Prisma {
     NOT?: FollowWhereInput | FollowWhereInput[]
     id?: StringFilter<"Follow"> | string
     followerProfile?: StringFilter<"Follow"> | string
-    followedProfile?: StringFilter<"Follow"> | string
+    followedProfiles?: StringNullableListFilter<"Follow">
     createdAt?: DateTimeFilter<"Follow"> | Date | string
   }
 
   export type FollowOrderByWithRelationInput = {
     id?: SortOrder
     followerProfile?: SortOrder
-    followedProfile?: SortOrder
+    followedProfiles?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -7280,14 +7276,14 @@ export namespace Prisma {
     OR?: FollowWhereInput[]
     NOT?: FollowWhereInput | FollowWhereInput[]
     followerProfile?: StringFilter<"Follow"> | string
-    followedProfile?: StringFilter<"Follow"> | string
+    followedProfiles?: StringNullableListFilter<"Follow">
     createdAt?: DateTimeFilter<"Follow"> | Date | string
   }, "id">
 
   export type FollowOrderByWithAggregationInput = {
     id?: SortOrder
     followerProfile?: SortOrder
-    followedProfile?: SortOrder
+    followedProfiles?: SortOrder
     createdAt?: SortOrder
     _count?: FollowCountOrderByAggregateInput
     _max?: FollowMaxOrderByAggregateInput
@@ -7300,7 +7296,7 @@ export namespace Prisma {
     NOT?: FollowScalarWhereWithAggregatesInput | FollowScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Follow"> | string
     followerProfile?: StringWithAggregatesFilter<"Follow"> | string
-    followedProfile?: StringWithAggregatesFilter<"Follow"> | string
+    followedProfiles?: StringNullableListFilter<"Follow">
     createdAt?: DateTimeWithAggregatesFilter<"Follow"> | Date | string
   }
 
@@ -7569,45 +7565,45 @@ export namespace Prisma {
   export type FollowCreateInput = {
     id?: string
     followerProfile: string
-    followedProfile: string
+    followedProfiles?: FollowCreatefollowedProfilesInput | string[]
     createdAt?: Date | string
   }
 
   export type FollowUncheckedCreateInput = {
     id?: string
     followerProfile: string
-    followedProfile: string
+    followedProfiles?: FollowCreatefollowedProfilesInput | string[]
     createdAt?: Date | string
   }
 
   export type FollowUpdateInput = {
     followerProfile?: StringFieldUpdateOperationsInput | string
-    followedProfile?: StringFieldUpdateOperationsInput | string
+    followedProfiles?: FollowUpdatefollowedProfilesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FollowUncheckedUpdateInput = {
     followerProfile?: StringFieldUpdateOperationsInput | string
-    followedProfile?: StringFieldUpdateOperationsInput | string
+    followedProfiles?: FollowUpdatefollowedProfilesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FollowCreateManyInput = {
     id?: string
     followerProfile: string
-    followedProfile: string
+    followedProfiles?: FollowCreatefollowedProfilesInput | string[]
     createdAt?: Date | string
   }
 
   export type FollowUpdateManyMutationInput = {
     followerProfile?: StringFieldUpdateOperationsInput | string
-    followedProfile?: StringFieldUpdateOperationsInput | string
+    followedProfiles?: FollowUpdatefollowedProfilesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FollowUncheckedUpdateManyInput = {
     followerProfile?: StringFieldUpdateOperationsInput | string
-    followedProfile?: StringFieldUpdateOperationsInput | string
+    followedProfiles?: FollowUpdatefollowedProfilesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -7883,24 +7879,30 @@ export namespace Prisma {
     createdAt?: SortOrder
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type FollowCountOrderByAggregateInput = {
     id?: SortOrder
     followerProfile?: SortOrder
-    followedProfile?: SortOrder
+    followedProfiles?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FollowMaxOrderByAggregateInput = {
     id?: SortOrder
     followerProfile?: SortOrder
-    followedProfile?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FollowMinOrderByAggregateInput = {
     id?: SortOrder
     followerProfile?: SortOrder
-    followedProfile?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -7944,6 +7946,15 @@ export namespace Prisma {
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
     unset?: boolean
+  }
+
+  export type FollowCreatefollowedProfilesInput = {
+    set: string[]
+  }
+
+  export type FollowUpdatefollowedProfilesInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {

@@ -49,10 +49,10 @@ model Like {
 }
 
 model Follow {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  followerProfile String
-  followedProfile String
-  createdAt       DateTime @default(now())
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  followerProfile  String
+  followedProfiles String[]
+  createdAt        DateTime @default(now())
 }
 
 model Bookmark {
